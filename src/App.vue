@@ -1,8 +1,8 @@
 <template>
   <div class="container" id="app">
-    <tareas v-bind:tareas = "tareas"/>
+    <tareas v-bind:tareas = "tareas" @deleteTask="deleteTask" />
     <hr>
-    <formularioTareas @enviarTarea="agregarTarea"/>
+    <formularioTareas @agregarTarea="agregarLinea" />
   </div>
 </template>
 
@@ -42,12 +42,18 @@ export default {
   },
 
   methods:{
-    agregarTarea(tarea){
-      this.tareas = [
-        this.tareas,
-        tarea
-      ]
-    }    
+    agregarLinea(tarea){
+      /* let id = 0;
+      if (Object.keys(this.tarea).length > 0) {
+        id = this.tarea[this.tareas.length - 1].id + 1;
+      } */
+      this.tareas = [...this.tareas, tarea]
+    },
+
+    deleteTask(id) {
+      this.tareas = this.tareas.filter( tarea => tarea.id !== id)
+    }
+    
   }
 };
 </script>

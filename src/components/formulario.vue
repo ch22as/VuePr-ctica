@@ -1,9 +1,15 @@
 <template>
     <div id="formularioTareas">
-        <form @submit.prevent="enviarFormulario">
+        <form @submit.prevent="enviarFormulario()">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
+
+                        <div class="form-group">
+                            <label class="form-label" for="">Id</label>
+                            <input class="form-control" type="id" v-model="tarea.id">
+                        </div>
+
                         <div class="form-group">
                             <label class="form-label" for="">nombre</label>
                             <input class="form-control" type="text" v-model="tarea.nombre">
@@ -18,7 +24,7 @@
                             <label class="form-label" for="">colaborador</label>
                             <input class="form-control" type="text" v-model="tarea.colaborador">
 
-                            <input class="btn btn-primary" type="button" value="boton">
+                            <input class="btn btn-primary" type="submit" value="boton">
                         </div>
                     </div>
                 </div>
@@ -35,6 +41,7 @@ export default {
     data(){
         return{
             tarea:{
+                id: '',
                 nombre:'',
                 tiempo:'',
                 colaborador:''
@@ -45,7 +52,12 @@ export default {
     methods: {
         enviarFormulario(){
             this.$emit('agregarTarea', this.tarea);
-            console.log("Formulario enviado");
+            this.tarea = {
+                id: '',
+                nombre:'',
+                tiempo:'',
+                colaborador:''
+            }
         }
     }
 }
