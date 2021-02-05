@@ -43,15 +43,22 @@ export default {
 
   methods:{
     agregarLinea(tarea){
-      /* let id = 0;
-      if (Object.keys(this.tarea).length > 0) {
-        id = this.tarea[this.tareas.length - 1].id + 1;
-      } */
+      
       this.tareas = [...this.tareas, tarea]
     },
 
     deleteTask(id) {
-      this.tareas = this.tareas.filter( tarea => tarea.id !== id)
+      console.log(id);
+      //Se comprueba que id recibe el boton con el console.log
+      //Se cambia el metodo filter por el splice, ya que el filter comparaba el id recibido que es el del array
+      // con el id introducido a mano, por lo que eliminaba lo que le apetecia y no lo que queriamos.
+      //de esta manera le indicamos que elimine el id del array que es el que nos interesa.
+      this.tareas.splice(id,1);
+      // this.tareas = this.tareas.filter( tarea => tarea.id !== id)
+
+      //El filter esta bien pero si cambiamos el codigo para que el id lo inyecte directamente por logica no a mano
+      //porque de la manera que lo tenemos no se va a corresponder con su posicion en el array.
+
     }
     
   }
