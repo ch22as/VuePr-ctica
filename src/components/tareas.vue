@@ -19,10 +19,6 @@
                         <input @click="$emit('deleteTask', index)" class="btn btn-danger" type="" value="Borrar">
                     </td>
                 </tr>
-
-                <tr>
-                    <td><input class="btn btn-primary" type="submit" value="boton"></td>
-                </tr>
             </tbody>
         </table>
 

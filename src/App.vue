@@ -43,8 +43,8 @@ export default {
 
   methods:{
     agregarLinea(tarea){
-      
-      this.tareas = [...this.tareas, tarea]
+      tarea.id = this.tareas.length+1;
+      this.tareas = [...this.tareas, tarea];
     },
 
     deleteTask(id) {
