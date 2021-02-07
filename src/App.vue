@@ -1,6 +1,6 @@
 <template>
   <div class="container" id="app">
-    <tareas v-bind:tareas = "tareas" @deleteTask="deleteTask" />
+    <tareas id="tablaTareas" v-bind:tareas = "tareas" @deleteTask="deleteTask" />
     <hr>
     <formularioTareas @agregarTarea="agregarLinea" />
   </div>
@@ -58,6 +58,14 @@ export default {
 
       //El filter esta bien pero si cambiamos el codigo para que el id lo inyecte directamente por logica no a mano
       //porque de la manera que lo tenemos no se va a corresponder con su posicion en el array.
+      
+
+      //Método alternativo Christian
+
+      // borrarTarea(id){
+      // this.tareas = this.tareas.filter(tarea => tarea.id !== id);
+      // return this.tareas
+      // }
 
     }
     

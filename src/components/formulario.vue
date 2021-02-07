@@ -30,7 +30,7 @@
 </template>
 <script>
 export default {
-    name: '#formularioTareas',
+    name: 'formularioTareas',
     
     data(){
         return{

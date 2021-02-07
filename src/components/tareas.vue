@@ -26,7 +26,7 @@
 </template>
 <script>
 export default {
-    name : "#tablaTareas",
+    name : "tablaTareas",
     props: ['tareas']
 }
 </script>
